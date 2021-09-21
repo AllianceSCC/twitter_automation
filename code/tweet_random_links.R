@@ -32,7 +32,7 @@ tweet_text <- tweet_text_options[select_text_num,1][[1]]
 #send tweet text----
 
 post_tweet(
-  status = paste("Happy ", weekdays(today), "! ", select_tweet_text),
+  status = paste("Happy ", weekdays(today), "! ", tweet_text),
   token = blog_token
 )
 
