@@ -8,7 +8,7 @@ today <- Sys.Date()
 
 #source potiental tweets----
 
-tweet_text_options <- read_csv("data/random_tweet_text.csv", col_names = NULL)
+tweet_text_options <- read_csv("data/random_tweet_text.csv")
 
 #connect twitter API----
 
@@ -29,15 +29,17 @@ select_text_num <- sample(link_num, 1)
 
 tweet_text <- tweet_text_options[select_text_num,1][[1]]
 
+composed_tweet <- paste("Happy ", weekdays(today), "! ", tweet_text)
+
 #send tweet text----
 
 post_tweet(
-  status = paste("Happy ", weekdays(today), "! ", select_tweet_text),
+  status = composed_tweet,
   token = blog_token
 )
 
 #omit used link----
 
-revised_links <- tweet_text_options %>% slice(-text_num)
+revised_links <- tweet_text_options %>% slice(-select_text_num)
 
-write_csv(new_twitter_links, "data/random_tweet_text.csv") #save recent links to a file
+write_csv(revised_links, "data/random_tweet_text.csv") #save recent links to a file
