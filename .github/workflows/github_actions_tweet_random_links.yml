@@ -25,4 +25,4 @@ jobs:
       #  uses: actions/cache@v1
       
       - name: Create and post tweet
-        run: Rscript code/tweet_article_links.R
+        run: Rscript code/tweet_random_links.R

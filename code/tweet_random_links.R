@@ -8,7 +8,7 @@ today <- Sys.Date()
 
 #source potiental tweets----
 
-tweet_text_options <- read_csv("data/random_tweet_text.csv")
+tweet_text_options <- read_csv("random_tweet_text.csv")
 
 #connect twitter API----
 
@@ -42,4 +42,4 @@ post_tweet(
 
 revised_links <- tweet_text_options %>% slice(-select_text_num)
 
-write_csv(revised_links, "data/random_tweet_text.csv") #save recent links to a file
+write_csv(revised_links, "random_tweet_text.csv") #save recent links to a file

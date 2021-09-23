@@ -19,9 +19,11 @@ tweet_text_options <- c("A new Scientific Writing & Editing Tip is live. #SciWri
 
 select_tweet_text <- sample(tweet_text_options, 1)
 
+composed_tweet <- paste("Happy ", weekdays(today), "! ", select_tweet_text, blog_link)
+
 #send tweet text----
 
 post_tweet(
-  status = paste("Happy ", weekdays(today), "! ", select_tweet_text, blog_link),
+  status = composed_tweet,
   token = blog_token
 )
