@@ -40,6 +40,6 @@ post_tweet(
 
 #omit used link----
 
-revised_links <- tweet_text_options %>% slice(-select_text_num)
+revised_links <- tweet_text_options %>% slice(-select_text_num) #delete this used row from the file
 
 write_csv(revised_links, "random_tweet_text.csv") #save recent links to a file
